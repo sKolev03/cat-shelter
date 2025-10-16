@@ -2,5 +2,6 @@
 SoftUni JS Back-End Course Project
 
 ## TODOs
- - [ ] Initialize NodeJs Project
- - [ ] Dev Environment
+ - [x] Initialize NodeJs Project
+ - [ ] Dev script
+ - [ ] Debugging
