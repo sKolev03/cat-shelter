@@ -12,5 +12,13 @@ SoftUni JS Back-End Course Project
  - [x] Extract css and html into separete js files
  - [x] Read home html from file system
  - [x] Read site css from file system
- - [x] Add create bread page
+ - [x] Add create breed page
  - [x] Add create cat page
+ - [x] Render view genetic function
+ - [ ] Render dynamic cats on home page
+ - [ ] Add cats form add-cats page
+
+
+
+
+ - [ ] Cache CSS

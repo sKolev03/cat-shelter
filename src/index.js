@@ -36,22 +36,25 @@ const server = http.createServer(async (req, res) => {
     res.end();
 });
 
+function renderView(path) {
+    return fs.readFile(path, { encoding: 'utf-8' });
+}
 
 async function homeView() {
-    const homeHtml = await fs.readFile('./src/views/home/index.html', { encoding: 'utf-8' });
+    const homeHtml = await renderView('./src/views/home/index.html');
 
     return homeHtml;
 }
 
 async function addBreedView() {
-    const html = await fs.readFile('./src/views/addBreed.html', { encoding: 'utf-8' });
+    const html = await renderView('./src/views/addBreed.html');
 
     return html;
 }
 
 async function addCatView(){
-    const html = await fs.readFile('./src/views/addCat.html', { encoding: 'utf-8' });
-
+    const html = await renderView('./src/views/addCat.html');
+    
     return html;
 }
 
