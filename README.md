@@ -19,8 +19,7 @@ SoftUni JS Back-End Course Project
  - [x] Add cats form add-cats page
  - [x] Conditional rendering with cats
  - [x] Redirect to home page
-
-
-
-
- - [ ] Cache CSS
+ - 
+ - 
+ - 
+ - [x] Cache CSS
