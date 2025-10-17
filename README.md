@@ -18,7 +18,7 @@ SoftUni JS Back-End Course Project
  - [x] Render dynamic cats on home page
  - [x] Add cats form add-cats page
  - [x] Conditional rendering with cats
- - [ ] Redirect to home page
+ - [x] Redirect to home page
 
 
 

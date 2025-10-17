@@ -21,7 +21,15 @@ const server = http.createServer(async (req, res) => {
             const newCat = Object.fromEntries(searchParams.entries());
 
             cats.push(newCat);
+
+            res.writeHead(302, {
+                'location': '/',
+            });
+
+            res.end();
         });
+
+        return;
     }
 
     switch (req.url) {
@@ -64,7 +72,7 @@ async function homeView() {
     const homeHtml = await readFile('./src/views/home/index.html');
 
     let catsHtml = '';
-    
+
     if (cats.length > 0) {
         catsHtml = cats.map(cat => catTemplate(cat)).join('\n');
     } else {
