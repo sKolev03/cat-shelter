@@ -63,7 +63,14 @@ function readFile(path) {
 async function homeView() {
     const homeHtml = await readFile('./src/views/home/index.html');
 
-    const catsHtml = cats.map(cat => catTemplate(cat)).join('\n');
+    let catsHtml = '';
+    
+    if (cats.length > 0) {
+        catsHtml = cats.map(cat => catTemplate(cat)).join('\n');
+    } else {
+        catsHtml = '<span>They all have home now <3</span>';
+    }
+
     const result = homeHtml.replaceAll('{{cats}}', catsHtml);
 
     return result;
