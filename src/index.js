@@ -1,26 +1,24 @@
 import http from 'http';
 import fs from 'fs/promises';
 
-import cats from './cats.js';
+import { getCats, saveCats} from './data.js';
 
 const server = http.createServer(async (req, res) => {
-    let html = '';
+    let html;
 
     if (req.method === 'POST') {
-        console.log('POST HAS BEEN MADE');
-
         let data = '';
 
         req.on('data', chunk => {
             data += chunk.toString();
         });
 
-        req.on('end', () => {
+        req.on('end', async() => {
             const searchParams = new URLSearchParams(data);
 
             const newCat = Object.fromEntries(searchParams.entries());
 
-            cats.push(newCat);
+            await saveCats(newCat);
 
             res.writeHead(302, {
                 'location': '/',
@@ -70,6 +68,7 @@ function readFile(path) {
 
 async function homeView() {
     const homeHtml = await readFile('./src/views/home/index.html');
+    const cats = await getCats();
 
     let catsHtml = '';
 
@@ -101,7 +100,6 @@ function catTemplate(cat) {
     <li>
         <img src="${cat.imageUrl}" alt="${cat.name}">
         <h3>${cat.name}</h3>
-<!--        <p><span>Price: </span>${cat.price}$</p> -->
         <p><span>Breed: </span>${cat.breed}</p>
         <p><span>Description: </span>${cat.description}</p>
         <ul class="buttons">
